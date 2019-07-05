@@ -1,0 +1,15 @@
+
+
+Cross-site Scripting, also known as XSS, is a way of bypassing the SOP concept in a vulnerable web application. Whenever HTML code is generated dynamically, and the user input is not sanitized and is reflected on the page an attacker could insert his own HTML code. The web browser will still show the user's code since it pertains to the website where it is injected.
+
+In such case an attacker can easily insert JavaScript code which would run under the site's context. By doing so the attacker is able to access other pages on the same domain and can read data like CSRF-Tokens or the set cookies.
+
+If the cookies, which typically contain session identifier information, can be read by the client-side JavaScript code, the attacker can use them on his own browser and login to the web application as the victim. If that does not work the attacker can still read private information from the pages, such as read CSRF tokens and make requests on behalf of the user.
+Different Types of Cross-Site Scripting Vulnerability
+
+
+
+A stored XSS vulnerability can happen if the username of an online message board is not properly sanitized when it is printed on the page. In such case an attacker can insert malicious code when registering a new user on the form. When the username is reflected on the message board page, it will look like this:
+
+
+A reflected XSS vulnerability happens when the user input from a URL or POST data is reflected on the page without being stored, thus allowing the attacker to inject malicious content. This means that an attacker has to send a crafted malicious URL  or post form to the victim to insert the payload, and the victim should click the link. This kind of payload is also generally being caught by built-in XSS filters in user's browsers, like Chrome, Internet Explorer or Edge
